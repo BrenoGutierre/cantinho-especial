@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Um Cantinho Especial</title>
+    <style>
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #fff0f5, #ffe4ec, #ffd6e8, #fff0f5);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            color: #333;
+            scroll-behavior: smooth;
+            transition: background 1s ease;
+            position: relative;
+        }
+
+        a { text-decoration: none; color: #ff69b4; }
+
+        header {
+            background: rgba(255, 182, 193, 0.9);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff69b4;
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; color: #fff; }
+        header p { margin-top: 10px; font-size: 1.2rem; color: #fff0f5; }
+
+        section { padding: 60px 20px; max-width: 900px; margin: auto; transition: all 0.6s ease; }
+        section h2 { font-size: 2rem; margin-bottom: 20px; text-align: center; color: #ff1493; }
+        section p { font-size: 1.1rem; line-height: 1.6; text-align: center; }
+
+        .moments { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .moments img {
+            width: 250px; height: 250px; object-fit: cover; border-radius: 15px;
+            transition: transform 0.3s ease; cursor: pointer; filter: brightness(0.9);
+        }
+        .moments img:hover { transform: scale(1.05); filter: brightness(1); }
+
+        .surprise { text-align: center; margin-top: 30px; }
+        .surprise button {
+            background: #ff69b4; color: #fff; border: none;
+            padding: 15px 25px; font-size: 1.1rem; border-radius: 10px;
+            cursor: pointer; transition: background 0.3s ease;
+        }
+        .surprise button:hover { background: #ff1493; }
+
+        footer { text-align: center; padding: 40px 20px; background: rgba(255, 182, 193, 0.9); color: #fff; border-top: 3px solid #ff69b4; }
+
+        /* Quiz */
+        .quiz { text-align: center; margin-top: 30px; }
+        .quiz button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: #ff69b4;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+        .quiz button:hover { background: #ff1493; }
+
+        /* Fatos */
+        .facts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .facts-box {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 228, 236, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .facts-box h3 {
+            color:#ff69b4;
+            text-align:center;
+        }
+        .facts-box ul {
+            line-height:1.8;
+            padding-left:20px;
+        }
+
+        /* Botão música */
+        #musicBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+        #musicBtn:hover {
+            background: #ff1493;
+        }
+
+        /* Player flutuante playlist */
+        .music-player {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: rgba(255, 182, 193, 0.95);
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 250px;
+        }
+        .music-player h3 { margin: 0 0 10px 0; color: #ff1493; font-size:1rem; }
+        .music-player button {
+            margin: 5px 3px;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .music-player button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+        .music-player audio {
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Um Cantinho Especial</h1>
+        <p>Esse cantinho é só pra você, Luna 💖</p>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>
+            Nos conhecemos no curso e, aos poucos, fomos criando uma conexão incrível. 
+            Rimos, conversamos, compartilhamos pequenas memórias. 
+            Ainda estamos nesse meio-termo mágico entre amizade e algo mais, mas cada momento é especial.
+        </p>
+    </section>
+
+    <section id="momentos">
+        <h2>Momentos Especiais</h2>
+        <div class="moments">
+            <img src="" alt="Momento 1" onclick="showMessage('Esse momento me fez rir muito 😄')">
+            <img src="" alt="Momento 2" onclick="showMessage('Aqui pensei: que sorte a minha te conhecer 💖')">
+            <img src="IMG_20250809_125434.jpg" alt="Momento 3" onclick="showMessage('Nunca vou esquecer esse dia especial 🌸')">
+        </div>
+        <p>Clique nas fotos para descobrir mensagens secretas sobre nossos momentos!</p>
+    </section>
+
+    <section id="fatos">
+        <h2>Fatos sobre Você 🌟</h2>
+        <div class="facts-container">
+
+            <div class="facts-box">
+                <h3>Fatos Bons 💖</h3>
+                <ul>
+                    <li>É uma ótima ajudante! Não reclama do trabalho e faz o que for preciso.</li>
+                    <li>Ama sair, mas também adora ficar em casa. Se for pra sair, gosta de tudo planejado.</li>
+                    <li>Adora músicas de todos os tipos, mas as melhores são do Jão e do Baco, claro.</li>
+                    <li>Acredita em tudo possível: Orixá, energia das cores, Evangelho, crenças limitantes, até pular 7 ondinhas no Ano Novo.</li>
+                    <li>É boa de cama (lá ele 😂) — se for pra dormir, tá dentro!</li>
+                </ul>
+            </div>
+
+            <div class="facts-box">
+                <h3>Fatos Ruins 🙃</h3>
+                <ul>
+                    <li>É chorona! Chora por tudo: filme triste, briga, nervoso ou raiva.</li>
+                    <li>Não pode dar risada demais porque tem soluço. Se vc sentir muito frio ou rir muito, pode até quase morrer (Deus me livre disso).</li>
+                    <li>Se começa a rir, não consegue parar… até ficar chato kkkkk.</li>
+                    <li>É meio fresca com algumas coisas: barulho de panela, jeito que a comida é feita, etc.</li>
+                    <li>Não gosta de política. Não vota nem em Lula nem em Bolsonaro, que os dois se explodam. 💥</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="surpresas">
+        <h2>Surpresas</h2>
+        <div class="surprise">
+            <button onclick="alert('Você é incrível e faz meus dias melhores 💖')">Clique aqui para uma surpresa!</button>
+        </div>
+
+        <div class="quiz">
+            <h3>Mini Quiz Divertido</h3>
+            <p>Qual é o meu doce favorito que te dei?</p>
+            <button onclick="checkAnswer(this,'acerto')">Morangos do amor</button>
+            <button onclick="checkAnswer(this,'erro')">Chocolate</button>
+            <button onclick="checkAnswer(this,'erro')">Bala</button>
+            <p id="quizResult" style="margin-top:15px; font-weight:bold;"></p>
+        </div>
+    </section>
+
+    <footer>
+        Feito com carinho por Gutierre 💌
+    </footer>
+
+    <!-- Player de música flutuante -->
+    <div class="music-player">
+        <h3>Playlist de Cinema 🎬💖</h3>
+        <audio controls id="audio-player">
+            <source src="Ed Sheeran - Perfect.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+        <div class="playlist">
+            <button onclick="playSong('Ed Sheeran - Perfect.mp3')">Perfect</button>
+            <button onclick="playSong('John Legend - All of Me (Lyrics).mp3')">All of Me</button>
+            <button onclick="playSong('Kina Grannis - Can\'t Help Falling In Love (From Crazy Rich Asians).mp3')">Cant Help Falling in Love</button>
+            <button onclick="playSong('Best Part (feat. H.E.R.).mp3')">Best Part</button>
+            <button onclick="playSong('Bruno Mars - Talking To The Moon (Official Lyric Video).mp3')">Talking to the Moon</button>
+            <button onclick="playSong('Lady Gaga, Bruno Mars - Die With A Smile.mp3')">Die With a Smile</button>
+        </div>
+    </div>
+
+    <!-- Botão para música de fundo -->
+    <audio id="bgMusic" loop>
+        <source src="Ed Sheeran - Perfect.mp3" type="audio/mpeg">
+    </audio>
+    <button id="musicBtn" onclick="toggleMusic()">🎵 Tocar música</button>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+        const btn = document.getElementById('musicBtn');
+        let playing = false;
+
+        function toggleMusic(){
+            if(!playing){
+                music.play();
+                btn.textContent = "⏸ Pausar música";
+                playing = true;
+            } else {
+                music.pause();
+                btn.textContent = "🎵 Tocar música";
+                playing = false;
+            }
+        }
+
+        function showMessage(msg){
+            alert(msg);
+        }
+
+        function checkAnswer(button, type){
+            const result = document.getElementById('quizResult');
+            if(type === 'acerto'){
+                result.textContent = 'Acertou! 😄💖';
+            } else {
+                result.textContent = 'Quase! Tente de novo 😉';
+            }
+        }
+
+        function playSong(file){
+            const player = document.getElementById('audio-player');
+            player.src = file;
+            player.play();
+        }
+    </script>
+
+</body>
+</html>
+
